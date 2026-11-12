@@ -5,10 +5,202 @@
 
 body {
   margin: 0;
+  display: grid;
+  grid-template-columns: .25fr .75fr;
+  min-height: 100vh;
+  font-family: system-ui, sans-serif;
+  color: #0d0d0d;
 }
 
-#content {
+h2 {
+  font-size: 1.5rem;
+}
+
+#leftColumn {
+  background-color: deepskyblue;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+}
+
+#addListBtn {
+  border: none;
+  width: 100%;
+  padding: 10px 0;
+  border-radius: 5px;
+  font-size: 1.0rem;
+  background-color: beige;
+}
+
+#addListBtn:hover {
+  background-color: lightgray;
+}
+
+#rightColumn {
+  background-color: beige;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+#listHeader {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+}
+
+#listContainer {
+  list-style-type: none;
+  margin: 10px 0 0 0;
+  padding: 0;
+}
+
+#listContainer li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#listContainer li:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* Name takes all the leftover space, pushing count and × to the right */
+.list-name {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-count {
+  min-width: 1.5em;
+  padding: 0 6px;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+/* Same fixed width for both so the counts line up */
+.delete-list-btn,
+.delete-list-placeholder {
+  width: 1.5rem;
+  flex-shrink: 0;
+}
+
+.delete-list-btn {
+  border: none;
+  background: none;
+  padding: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  color: #0d0d0d;
+  opacity: 0.5;
+}
+
+.delete-list-btn:hover {
+  opacity: 1;
+  color: crimson;
+}
+
+#addTodoBtn {
+  border: none;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 1.0rem;
+  background-color: deepskyblue;
+}
+
+#addTodoBtn:hover {
+  background-color: lightgray;
+}
+
+input[type="checkbox"] {
+  width: 1.5em;
+  height: 1.5em;
+  accent-color: deepskyblue;
+  margin-right: 20px;
+}
+
+.todo {
+  /*position: relative;*/
+  background-color: #f2eee4;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px gray;
+  font-size: 1rem;
+  padding: 5px 15px 5px 25px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-left: 4px solid transparent;
+  background: white;
+}
+
+.todo.priority-high   { border-left-color: crimson; }
+.todo.priority-medium { border-left-color: orange; }
+.todo.priority-low    { border-left-color: mediumseagreen; }
+
+.todo .edit-btn {
+  margin-left: auto;
+  margin-right: 3px;
+}
+
+.todo h4, .todo p {
+  margin: 3px 0 3px 0;
+}
+
+.todo button {
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: deepskyblue;
+}
+
+.todo.done {
+  opacity: 0.6;
+  text-decoration: line-through;
+}
+
+#todoDialog {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px gray;
+  width: 350px;
+}
+
+#todoDialog h2 {
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+#todoDialog label {
+  display: block;
+}
+
+#todoDialog input, 
+#todoDialog select {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 1rem;
+  height: 2rem;
+  border: solid 1px gray;
+}
+
+#todoDialog button {
+  border: none;
+  padding: 5px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: deepskyblue;
+  margin-top: 10px;
+}
+
+.dialog-group {
+  margin: 10px 0 10px 0;
 }
